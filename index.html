@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajude a pretinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: #e0f2e9;
+            color: #064635;
+            margin: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #369fc9;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .logo {
+            height: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 80px auto 20px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress {
+            width: 34%; /* 17000 de 50000 */
+            background: #28a745;
+            height: 20px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        }
+        .donate-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .donate-btn {
+            padding: 10px;
+            width: 47px; height: 47px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            min-width: 80px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+        
+        .popup button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-btn {
+            margin-left: 10px;
+            background: #28a745;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 5px;
+        }
+        .manu-photo {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .cadelinha-descricao {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cadelinha-descricao p {
+  margin-bottom: 15px;
+}
+
+.destaque {
+  font-size: 1.1em;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.slogan {
+  font-style: italic;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 1.2em;
+  color: #5bc0de;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://iaa.org.br/wp-content/uploads/2015/12/logo-1.png" alt="Logo" class="logo" >
+       
+    </div>
+    
+    <div class="container">
+        <h1>Ajude a Pretinha</h1>
+        <img src="/40db6d7bc5a33e219e74505973e8db54~tplv-tiktokx-cropcenter_1080_1080.jpeg" alt="Manu" class="manu-photo">
+        <div class="cadelinha-descricao">
+            <p>Minha cadelinha foi vítima da pior maldade humana. Um monstro a violentou, deixando sequelas graves, trauma e dor constante. Tenho provas, boletim de ocorrência e uma luta implacável por justiça.</p>
+          
+            <p>Mas agora, ela precisa de você. A cirurgia urgente é sua única chance de voltar a andar, de ter uma vida digna após essa barbárie. Cada segundo conta.</p>
+        
+          
+            <p>Ajude antes que seja tarde. Não deixe que ela definhe no sofrimento. 💔🐾</p>
+          
+            <p class="slogan"><strong>Justiça para ela. Esperança para nós.</strong></p><hr>
+          </div>
+        
+        <div class="progress-bar">
+            <div class="progress">R$ 200,00 arrecadados</div>
+        </div>
+        <p>Meta: R$ 5.000</p>
+        
+        <h3>Faça sua doação:</h3>
+        <div class="donate-container">
+            <button class="donate-btn" onclick="showPopup()">R$ 5,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 10,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 15,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 25,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 35,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 45,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 50,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 150,00</button>
+            <button class="donate-btn" onclick="showPopup()">R$ 500,00</button>
+        </div>
+        
+        <div id="donation-popup" class="popup">
+            <h3>Chave PIX:</h3>
+            <p id="pix-key">7199151-0899</p>
+            <button class="copy-btn" onclick="copyPix()">Copiar</button>
+            <p id="copy-feedback" style="color: green; display: none;">Chave copiada!</p>
+            <p>"A fé sem obras é morta" - Tiago 2:17. Seja a mudança que pretinha precisa!</p>
+            <button onclick="closePopup()">Fechar</button>
+        </div>
+        
+        <h3>Vídeo da Manu</h3>
+        <video width="100%" height="315" autoplay loop>
+            <source src="/ssstik.io_@ajudeeapretinha_1743158491480.mp4" type="video/mp4">
+            Seu navegador não suporta o formato de vídeo.
+        </video>
+        
+        
+        <h3>Fotos da Manu</h3>
+        <img src="/stu.jpeg" width="100%">
+        <img src="/remedio.jpeg" width="100%">
+        <img src="/Imagem do WhatsApp de 2025-03-28 à(s) 08.41.57_48b44ddb.jpg" width="100%">
+       
+        
+        <h3>Doe diretamente pelo PIX:</h3>
+        <p><strong>Chave PIX:</strong> 7199151-0899</p>
+        <p>Eli ribeiro</p>
+    </div>
+    
+    <script>
+        function showPopup() {
+            document.getElementById('donation-popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('donation-popup').style.display = 'none';
+        }
+        function copyPix() {
+            const pixKey = document.getElementById('pix-key').innerText;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                document.getElementById('copy-feedback').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('copy-feedback').style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+            });
+        }
+    </script>
+</body>
+</html>
